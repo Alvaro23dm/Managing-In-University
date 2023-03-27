@@ -8,31 +8,25 @@ public class Course{
     private int code;
     private String name;
     private String coordinator;
-    private List<Student> StudentsList;
+    private List<Student> studentsList;
 
-    public Course(int code, String name, String coordinator)throws CourseInvalidFieldException{
+    public Course(int code, String name, String coordinator) throws CourseInvalidFieldException{
         this.code = code;
         this.coordinator = coordinator;
         this.name = name;
-        StudentsList = new ArrayList<Student>();   
+        studentsList = new ArrayList<Student>();   
     }
 
     public int getNumberStudents(){
-        return StudentsList.size();
+        return studentsList.size();
     } 
 
     public boolean isInCourse(Student student){
-        return StudentsList.contains(student);
+        return studentsList.contains(student);
     }
 
     public void enrollStudent(Student student){
-        StudentsList.add(student);
+        studentsList.add(student);
     }
-
-    
-
-
-
-
-    
+  
 }
