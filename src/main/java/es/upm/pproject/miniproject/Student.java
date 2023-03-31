@@ -3,12 +3,15 @@ package es.upm.pproject.miniproject;
 public class Student {
     private int id;
     private String name;
-    private String mail;
+    private String email;
 
-    public Student (int id, String name, String mail) throws StudentInvalidFieldException{
+    public Student (int id, String name, String email) throws UnivSystemException{
         this.id = id;
         this.name = name;
-        this.mail = mail;
+        this.email = email;
     }
 
+    public int getId(){
+        return id;
+    }
 }
