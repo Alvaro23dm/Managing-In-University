@@ -33,7 +33,6 @@ public class Course implements ICourse{
     }
 
     public List<IStudent> getStudentsList(){
-        //List<IStudent> copyList = new ArrayList<IStudent>(studentsList);
         return studentsList;
     }
 
