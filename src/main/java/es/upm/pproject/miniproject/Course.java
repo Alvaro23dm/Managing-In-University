@@ -38,7 +38,7 @@ public class Course{
         studentsList.add(student);
     }
 
-    public void unEnrollStudent(Student student){
+    public void unenrollStudent(Student student){
         studentsList.remove(student);
     }
 
