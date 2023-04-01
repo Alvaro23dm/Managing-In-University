@@ -1,4 +1,4 @@
-package es.upm.pproject.miniproject;
+package es.upm.pproject.miniproject.management;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -8,15 +8,20 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-public class UniversityManagement {
-    private Map<Integer, Course> courseList;
-    private Map<Integer, Student> studentsList;
+
+import es.upm.pproject.miniproject.course.*;
+import es.upm.pproject.miniproject.student.*;
+import es.upm.pproject.miniproject.exception.UnivSystemException;
+
+public class UniversityManagement implements IUniversityManagement{
+    private Map<Integer, ICourse> courseList;
+    private Map<Integer, IStudent> studentsList;
     
     private static final Logger logger = LoggerFactory.getLogger(UniversityManagement.class);
 
     public UniversityManagement(){
-        courseList = new HashMap<Integer, Course>();
-        studentsList = new HashMap<Integer, Student>();
+        courseList = new HashMap<Integer, ICourse>();
+        studentsList = new HashMap<Integer, IStudent>();
     }
 
     public void addStudentToSystem(int id, String name, String email) throws UnivSystemException{
@@ -38,7 +43,7 @@ public class UniversityManagement {
             throw new UnivSystemException("The format of the email address must be correct");
         }
 
-        Student student = new Student(id, name, email);
+        IStudent student = new Student(id, name, email);
         studentsList.put(id, student); 
         logger.info("Registering of the student with id={}, name={}, email={} completed", id, name, email);
 
@@ -58,7 +63,7 @@ public class UniversityManagement {
             throw new UnivSystemException("Coordinator field cannot be blank");
         }
 
-        Course course = new Course(code, name, coordinator);
+        ICourse course = new Course(code, name, coordinator);
         courseList.put(code, course);
         logger.info("Registering of the course with id={}, name={}, email={} completed", code, name, coordinator);
 
@@ -68,8 +73,8 @@ public class UniversityManagement {
 
         logger.info("Enrolling the student with id={} in course with code={} ...", idStudent, courseCode);
 
-        Student student = studentsList.get(idStudent);
-        Course course = courseList.get(courseCode);
+        IStudent student = studentsList.get(idStudent);
+        ICourse course = courseList.get(courseCode);
 
         if(!studentsList.containsKey(idStudent)){
             logger.error("The student with id={} is not registered in the system", idStudent);
@@ -99,8 +104,8 @@ public class UniversityManagement {
 
         logger.info("Unenrolling the student with id={} from course with code={} ...", idStudent, courseCode);
 
-        Student student = studentsList.get(idStudent);
-        Course course = courseList.get(courseCode);
+        IStudent student = studentsList.get(idStudent);
+        ICourse course = courseList.get(courseCode);
 
         if(!studentsList.containsKey(idStudent)){
             logger.error("The student with id={} is not registered in the system", idStudent);
@@ -121,30 +126,30 @@ public class UniversityManagement {
         logger.info("The student with id={} has been succesfully unenrolled from course with code={}", idStudent, courseCode);
     }
 
-    public List<Student> matriculatedStudentsList(int courseCode) throws UnivSystemException{
+    public List<IStudent> matriculatedStudentsList(int courseCode) throws UnivSystemException{
         logger.info("Loading list of students matriculated in course with id={}...", courseCode);
-        Course course = courseList.get(courseCode);
-        List<Student> students = course.getStudentsList();
+        ICourse course = courseList.get(courseCode);
+        List<IStudent> students = course.getStudentsList();
         logger.debug("Sorting list by identification number...");
-        students.sort(Comparator.comparing(Student::getId));
+        students.sort(Comparator.comparing(IStudent::getId));
         logger.info("List of students matriculated in course with id={} ready to display", courseCode);
         return students;
     }
 
-    public List<Student> registeredStudentsList(){
+    public List<IStudent> registeredStudentsList(){
         logger.info("Loading list of students registered...");
-        List<Student> students = new ArrayList<>(studentsList.values());
+        List<IStudent> students = new ArrayList<>(studentsList.values());
         logger.debug("Sorting list by identification number...");
-        students.sort(Comparator.comparing(Student::getId));
+        students.sort(Comparator.comparing(IStudent::getId));
         logger.info("List of students registered ready to display");
         return students;
     }
 
-    public List<Course> registeredCoursesList(){
+    public List<ICourse> registeredCoursesList(){
         logger.info("Loading list of courses registered...");
-        List<Course> courses = new ArrayList<>(courseList.values());
+        List<ICourse> courses = new ArrayList<>(courseList.values());
         logger.debug("Sorting list by code...");
-        courses.sort(Comparator.comparing(Course::getCode));
+        courses.sort(Comparator.comparing(ICourse::getCode));
         logger.info("List of courses registered ready to display");
         return courses;
     }

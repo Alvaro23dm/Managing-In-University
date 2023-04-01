@@ -2,11 +2,15 @@ package es.upm.pproject.miniproject;
 
 import java.util.List;
 
+import es.upm.pproject.miniproject.exception.UnivSystemException;
+import es.upm.pproject.miniproject.management.*;
+import es.upm.pproject.miniproject.student.IStudent;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        UniversityManagement system = new UniversityManagement();
+        IUniversityManagement system = new UniversityManagement();
 
         try {
             // Register students
@@ -27,9 +31,9 @@ public class Main {
             system.enrollStudent(2, 101);
             
             // Get list of students enrolled in a course
-            List<Student> students = system.matriculatedStudentsList(101);
+            List<IStudent> students = system.matriculatedStudentsList(101);
             System.out.println("Students enrolled in course 101:");
-            for (Student s : students) {
+            for (IStudent s : students) {
                 System.out.println(s.getName());
             }
 
@@ -37,11 +41,17 @@ public class Main {
             system.unenrollStudent(1, 101);
 
             // Get list of registered students
-            List<Student> registeredStudents = system.registeredStudentsList();
+            List<IStudent> registeredStudents = system.registeredStudentsList();
             System.out.println("\nRegistered students:");
-            for (Student s : registeredStudents) {
+            for (IStudent s : registeredStudents) {
                 System.out.println(s.getName());
             }
+
+            System.out.println("\nStudents enrolled in course 101:");
+            for (IStudent s : students) {
+                System.out.println(s.getName());
+            }
+
         } catch (UnivSystemException e) {
             System.out.println(e.getMessage());
         }
