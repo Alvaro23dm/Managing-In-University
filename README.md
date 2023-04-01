@@ -24,23 +24,26 @@ Here are some examples of how to use the public methods of the program:
 
 ### Creating a Course
 
-```java
-ICourse course = new Course(100, "Java Programming", "John Smith");```
+``` java
+ICourse course = new Course(100, "Java Programming", "John Smith");
+```
 
 ### Enrolling a Student
 
-```java
+``` java
 IUniversityManagement management = new UniversityManagement();
 IStudent student = new Student(12345, "Jane Doe", "jane.doe@example.com");
 management.addStudentToSystem(student.getId(), student.getName(), student.getEmail());
 management.addCourseToSystem(course.getCode(), course.getName(), course.getCoordinator());
-management.enrollStudent(student.getId(), course.getCode());```
+management.enrollStudent(student.getId(), course.getCode());
+```
 
 ### Listing Registered Courses
 
-```java
+``` java
 IUniversityManagement management = new UniversityManagement();
 List<ICourse> courses = management.registeredCoursesList();
 for (ICourse course : courses) {
     System.out.println(course.getName());
-}```
+}
+```
