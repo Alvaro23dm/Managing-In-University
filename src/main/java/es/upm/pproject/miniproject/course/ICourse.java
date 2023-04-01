@@ -5,18 +5,12 @@ import java.util.List;
 import es.upm.pproject.miniproject.student.IStudent;
 
 /**
-
-The ICourse interface represents a course object in the educational system.
-
-It defines methods to retrieve and manipulate information about the course,
-
-including its code, name, coordinator, list of enrolled students, and number of
-
-enrolled students. It also provides methods to check if a student is currently
-
-enrolled in the course, enroll and unenroll students, and restart the course.
-
-*/
+ * The ICourse interface represents a course object in the educational system.
+ * It defines methods to retrieve and manipulate information about the course,
+ * including its code, name, coordinator, list of enrolled students, and number of
+ * enrolled students. It also provides methods to check if a student is currently
+ * enrolled in the course, enroll and unenroll students, and restart the course.
+ * */
 public interface ICourse {
 
     /**
