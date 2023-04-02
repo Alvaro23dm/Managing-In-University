@@ -23,7 +23,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test1() throws UnivSystemException {
+    void test1() throws UnivSystemException {
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         system.addCourseToSystem(102, "Data Structures and Algorithms", "Dr. Johnson");
@@ -39,7 +39,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test2(){
+    void test2(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "", "Dr. Smith");
@@ -55,7 +55,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test3(){
+    void test3(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "");
@@ -72,7 +72,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test4()throws UnivSystemException{
+    void test4()throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
         system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
@@ -91,7 +91,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test5(){
+    void test5(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addStudentToSystem(1, "", "john.smith@example.com");
@@ -108,7 +108,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test6(){
+    void test6(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addStudentToSystem(1, "John Smith", "");
@@ -124,7 +124,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test7(){
+    void test7(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addStudentToSystem(1, "John Smith", "john.smithexample.com");
@@ -140,7 +140,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified.
     */
     @Test
-    public void test8(){
+    void test8(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addStudentToSystem(1, "John Smith", "john.smithex@ample.com.");
@@ -158,7 +158,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test9()throws UnivSystemException{
+    void test9()throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         
@@ -185,7 +185,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test10(){
+    void test10(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
@@ -203,7 +203,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test11(){
+    void test11(){
         IUniversityManagement system = new UniversityManagement();
         try {    
             system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
@@ -220,7 +220,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test12(){
+    void test12(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
@@ -293,7 +293,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test13(){
+    void test13(){
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
@@ -313,7 +313,7 @@ public class UniManagTest {
      * @throws UnivSystemException if course isn't registered in the system.
     */
     @Test
-    public void test14() throws UnivSystemException{
+    void test14() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         
@@ -353,7 +353,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test15() throws UnivSystemException{
+    void test15() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         
@@ -382,7 +382,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test16() throws UnivSystemException{
+    void test16() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
@@ -400,7 +400,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test17() throws UnivSystemException{
+    void test17() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         try {
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
@@ -420,7 +420,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test18() throws UnivSystemException{
+    void test18() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         
@@ -447,7 +447,7 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    public void test19() throws UnivSystemException{
+    void test19() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         
@@ -476,7 +476,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified while adding students to system.
     */
     @Test
-    public void test20() throws UnivSystemException{
+    void test20() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         
         system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
@@ -511,7 +511,7 @@ public class UniManagTest {
      * @throws UnivSystemException if the format of some parameters are not as especified while adding courses to system.
     */
     @Test
-    public void test21() throws UnivSystemException{
+    void test21() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         system.addCourseToSystem(102, "Data Structures and Algorithms", "Dr. Johnson");
