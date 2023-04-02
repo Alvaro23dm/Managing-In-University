@@ -1,6 +1,7 @@
 package es.upm.pproject.miniproject;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -185,15 +186,15 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    void test10(){
+    void test10() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {
-            system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
             system.enrollStudent(1, 101);
-            fail("Test fail while trying to add a student to a course when the student isn't registered in the system. This action cannot succed");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
-        }
+        });
+        String expectedMessage = "The student must be already registered in the system.";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage);
         
     }
 
@@ -203,15 +204,15 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    void test11(){
+    void test11() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {    
-            system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
+        system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
             system.enrollStudent(1, 101);
-            fail("Exception did not occur. The course must be already registered in the system.");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
-        }
+        });
+        String expectedMessage = "The course must be already registered in the system.";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage);  
     }
     
     /**
@@ -220,71 +221,72 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    void test12(){
+    void test12()throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {
-            system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+    
+        system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
+        system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
+        system.addStudentToSystem(3, "Michael Davis", "michael.davis@example.com");
+        system.addStudentToSystem(4, "Samantha Martinez", "samantha.martinez@example.com");
+        system.addStudentToSystem(5, "Emily Thompson", "emily.thompson@example.com");
+        system.addStudentToSystem(6, "Jacob Brown", "jacob.brown@example.com");
+        system.addStudentToSystem(7, "Olivia Garcia", "olivia.garcia@example.com");
+        system.addStudentToSystem(8, "William Rodriguez", "william.rodriguez@example.com");
+        system.addStudentToSystem(9, "Ava Hernandez", "ava.hernandez@example.com");
+        system.addStudentToSystem(10, "Ethan Lee", "ethan.lee@example.com");
+        system.addStudentToSystem(11, "Sophia Kim", "sophia.kim@example.com");
+        system.addStudentToSystem(12, "Daniel Davis", "daniel.davis@example.com");
+        system.addStudentToSystem(13, "Mia Taylor", "mia.taylor@example.com");
+        system.addStudentToSystem(14, "Benjamin Adams", "benjamin.adams@example.com");
+        system.addStudentToSystem(15, "Isabella Wright", "isabella.wright@example.com");
+        system.addStudentToSystem(16, "Mason Campbell", "mason.campbell@example.com");
+        system.addStudentToSystem(17, "Charlotte Mitchell", "charlotte.mitchell@example.com");
+        system.addStudentToSystem(18, "Noah Perez", "noah.perez@example.com");
+        system.addStudentToSystem(19, "Amelia Baker", "amelia.baker@example.com");
+        system.addStudentToSystem(20, "Liam Parker", "liam.parker@example.com");
+        system.addStudentToSystem(21, "Chloe Green", "chloe.green@example.com");
+        system.addStudentToSystem(22, "Alexander Evans", "alexander.evans@example.com");
+        system.addStudentToSystem(23, "Madison Torres", "madison.torres@example.com");
+        system.addStudentToSystem(24, "Elijah Ramirez", "elijah.ramirez@example.com");
+        system.addStudentToSystem(25, "Grace Collins", "grace.collins@example.com");
+        system.addStudentToSystem(26, "Logan Wright", "logan.wright@example.com");
+        system.addStudentToSystem(27, "Avery Cooper", "avery.cooper@example.com");
+        system.addStudentToSystem(28, "Carter Reyes", "carter.reyes@example.com");
+        system.addStudentToSystem(29, "Aria Mitchell", "aria.mitchell@example.com");
+        system.addStudentToSystem(30, "Joshua Turner", "joshua.turner@example.com");
+        system.addStudentToSystem(31, "Evelyn Scott", "evelyn.scott@example.com");
+        system.addStudentToSystem(32, "Gabriel Flores", "gabriel.flores@example.com");
+        system.addStudentToSystem(33, "Hannah Carter", "hannah.carter@example.com");
+        system.addStudentToSystem(34, "Isaac Torres", "isaac.torres@example.com");
+        system.addStudentToSystem(35, "Victoria Phillips", "victoria.phillips@example.com");
+        system.addStudentToSystem(36, "Landon Cooper", "landon.cooper@example.com");
+        system.addStudentToSystem(37, "Natalie Rivera", "natalie.rivera@example.com");
+        system.addStudentToSystem(38, "Lucas Reed", "lucas.reed@example.com");
+        system.addStudentToSystem(39, "Audrey Baker", "audrey.baker@example.com");
+        system.addStudentToSystem(40, "Jackson Wright", "jackson.wright@example.com");
+        system.addStudentToSystem(41, "Leah Mitchell", "leah.mitchell@example.com");
+        system.addStudentToSystem(42, "David Robinson", "david.robinson@example.com");
+        system.addStudentToSystem(43, "Sofia Cooper", "sofia.cooper@example.com");
+        system.addStudentToSystem(44, "Andrew Sanders", "andrew.sanders@example.com");
+        system.addStudentToSystem(45, "Aaliyah Johnson", "aaliyah.johnson@example.com");
+        system.addStudentToSystem(46, "Christopher Rodriguez", "christopher.rodriguez@example.com");
+        system.addStudentToSystem(47, "Avery Ramirez", "avery.ramirez@example.com");
+        system.addStudentToSystem(48, "Makayla Green", "makayla.green@example.com");
+        system.addStudentToSystem(49, "Jonathan Davis", "jonathan.davis@example.com");
+        system.addStudentToSystem(50, "Sophie Hernandez", "sophie.hernandez@example.com");
+        system.addStudentToSystem(51, "Daniel Martinez", "daniel.martinez@example.com");
         
-            system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
-            system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
-            system.addStudentToSystem(3, "Michael Davis", "michael.davis@example.com");
-            system.addStudentToSystem(4, "Samantha Martinez", "samantha.martinez@example.com");
-            system.addStudentToSystem(5, "Emily Thompson", "emily.thompson@example.com");
-            system.addStudentToSystem(6, "Jacob Brown", "jacob.brown@example.com");
-            system.addStudentToSystem(7, "Olivia Garcia", "olivia.garcia@example.com");
-            system.addStudentToSystem(8, "William Rodriguez", "william.rodriguez@example.com");
-            system.addStudentToSystem(9, "Ava Hernandez", "ava.hernandez@example.com");
-            system.addStudentToSystem(10, "Ethan Lee", "ethan.lee@example.com");
-            system.addStudentToSystem(11, "Sophia Kim", "sophia.kim@example.com");
-            system.addStudentToSystem(12, "Daniel Davis", "daniel.davis@example.com");
-            system.addStudentToSystem(13, "Mia Taylor", "mia.taylor@example.com");
-            system.addStudentToSystem(14, "Benjamin Adams", "benjamin.adams@example.com");
-            system.addStudentToSystem(15, "Isabella Wright", "isabella.wright@example.com");
-            system.addStudentToSystem(16, "Mason Campbell", "mason.campbell@example.com");
-            system.addStudentToSystem(17, "Charlotte Mitchell", "charlotte.mitchell@example.com");
-            system.addStudentToSystem(18, "Noah Perez", "noah.perez@example.com");
-            system.addStudentToSystem(19, "Amelia Baker", "amelia.baker@example.com");
-            system.addStudentToSystem(20, "Liam Parker", "liam.parker@example.com");
-            system.addStudentToSystem(21, "Chloe Green", "chloe.green@example.com");
-            system.addStudentToSystem(22, "Alexander Evans", "alexander.evans@example.com");
-            system.addStudentToSystem(23, "Madison Torres", "madison.torres@example.com");
-            system.addStudentToSystem(24, "Elijah Ramirez", "elijah.ramirez@example.com");
-            system.addStudentToSystem(25, "Grace Collins", "grace.collins@example.com");
-            system.addStudentToSystem(26, "Logan Wright", "logan.wright@example.com");
-            system.addStudentToSystem(27, "Avery Cooper", "avery.cooper@example.com");
-            system.addStudentToSystem(28, "Carter Reyes", "carter.reyes@example.com");
-            system.addStudentToSystem(29, "Aria Mitchell", "aria.mitchell@example.com");
-            system.addStudentToSystem(30, "Joshua Turner", "joshua.turner@example.com");
-            system.addStudentToSystem(31, "Evelyn Scott", "evelyn.scott@example.com");
-            system.addStudentToSystem(32, "Gabriel Flores", "gabriel.flores@example.com");
-            system.addStudentToSystem(33, "Hannah Carter", "hannah.carter@example.com");
-            system.addStudentToSystem(34, "Isaac Torres", "isaac.torres@example.com");
-            system.addStudentToSystem(35, "Victoria Phillips", "victoria.phillips@example.com");
-            system.addStudentToSystem(36, "Landon Cooper", "landon.cooper@example.com");
-            system.addStudentToSystem(37, "Natalie Rivera", "natalie.rivera@example.com");
-            system.addStudentToSystem(38, "Lucas Reed", "lucas.reed@example.com");
-            system.addStudentToSystem(39, "Audrey Baker", "audrey.baker@example.com");
-            system.addStudentToSystem(40, "Jackson Wright", "jackson.wright@example.com");
-            system.addStudentToSystem(41, "Leah Mitchell", "leah.mitchell@example.com");
-            system.addStudentToSystem(42, "David Robinson", "david.robinson@example.com");
-            system.addStudentToSystem(43, "Sofia Cooper", "sofia.cooper@example.com");
-            system.addStudentToSystem(44, "Andrew Sanders", "andrew.sanders@example.com");
-            system.addStudentToSystem(45, "Aaliyah Johnson", "aaliyah.johnson@example.com");
-            system.addStudentToSystem(46, "Christopher Rodriguez", "christopher.rodriguez@example.com");
-            system.addStudentToSystem(47, "Avery Ramirez", "avery.ramirez@example.com");
-            system.addStudentToSystem(48, "Makayla Green", "makayla.green@example.com");
-            system.addStudentToSystem(49, "Jonathan Davis", "jonathan.davis@example.com");
-            system.addStudentToSystem(50, "Sophie Hernandez", "sophie.hernandez@example.com");
-            system.addStudentToSystem(51, "Daniel Martinez", "daniel.martinez@example.com");
-            
-            for(int i = 0; i<51; i++){
-                system.enrollStudent(i+1, 101);
-            }
-
-            fail("Test fail while trying to add a course to the system when the course is full. This action cannot succed");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
+        for(int i = 0; i<50; i++){
+            system.enrollStudent(i+1, 101);
         }
+
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
+            system.enrollStudent(51, 101);
+        });
+        String expectedMessage = "No more places are available for the course";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage); 
     }
 
     /**
@@ -293,17 +295,18 @@ public class UniManagTest {
      * @throws UnivSystemException if courses or students or added to a course are not registered in the system.
     */
     @Test
-    void test13(){
+    void test13()throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {
-            system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
-            system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
+        
+        system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        system.addStudentToSystem(1, "John Smith", "john.smith@example.com");
+        system.enrollStudent(1, 101);
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
             system.enrollStudent(1, 101);
-            system.enrollStudent(1, 101);
-            fail("Test fail while trying to add a student to a course while the student is already in the course. This action cannot succed");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
-        }
+        });
+        String expectedMessage = "A student cannot be enrolled in the same course twice";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage); 
     }
 
     //Test part 4
@@ -384,13 +387,15 @@ public class UniManagTest {
     @Test
     void test16() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {
-            system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        
+        system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
             system.unenrollStudent(2, 101);
-            fail("Test fail while trying to remove a student from a course when the student isn't registered in the system. This action cannot succed");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
-        }
+        });
+        String expectedMessage = "The student must be already registered in the system.";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage); 
         
     }    
     
@@ -402,14 +407,16 @@ public class UniManagTest {
     @Test
     void test17() throws UnivSystemException{
         IUniversityManagement system = new UniversityManagement();
-        try {
-            system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
-            system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
+        
+        system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
+        system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
+        
+        Exception exception = assertThrows(UnivSystemException.class, () -> {
             system.unenrollStudent(2, 101);
-            fail("A student must be enroll in a course to be able to cancel enrollment");
-        } catch (UnivSystemException e) {
-            assertTrue(true);
-        }
+        });
+        String expectedMessage = "The student is not enrolled in the course.";
+        String actualMessage = exception.getMessage();
+        assertEquals(actualMessage, expectedMessage);
         
     }
 

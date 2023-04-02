@@ -88,7 +88,7 @@ public class UniversityManagement implements IUniversityManagement{
 
         if(course.getNumberStudents() >= 50){
             logger.error("The course with code={} has not more places available", courseCode);
-            throw new UnivSystemException("Mo more places are available for the course");
+            throw new UnivSystemException("No more places are available for the course");
         }
 
         if(course.isInCourse(student)){
