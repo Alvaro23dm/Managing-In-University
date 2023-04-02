@@ -18,6 +18,7 @@ public class Main {
             system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
             system.addStudentToSystem(3, "Michael Davis", "michael.davis@example.com");
             system.addStudentToSystem(4, "Samantha Martinez", "samantha.martinez@example.com");
+            System.out.println(system.registeredStudentsList());
 
             // Register courses
             system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");

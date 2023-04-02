@@ -69,5 +69,11 @@ public interface IUniversityManagement {
      * @throws UnivSystemException if an error occurs while retrieving the list of registered courses.
     */
     public List<ICourse> registeredCoursesList() throws UnivSystemException;
-    
+
+    /**
+     * Returns a a course given his code.
+     * @param courseCode the code of the course to retrieve the list of enrolled students for.
+     * @return courses registered in the system.
+    */
+    public ICourse getCourse(int courseCode);
     }

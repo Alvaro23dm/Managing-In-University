@@ -154,4 +154,10 @@ public class UniversityManagement implements IUniversityManagement{
         return courses;
     }
 
+    public ICourse getCourse(int courseCode){
+        return courseList.get(courseCode);
+    }
+
+    
+
 }

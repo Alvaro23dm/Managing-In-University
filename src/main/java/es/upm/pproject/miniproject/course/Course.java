@@ -55,5 +55,9 @@ public class Course implements ICourse{
     public void restartCourse(){
         studentsList.clear();
     }
+
+    public String toString(){
+        return "(Course ID: " + code + ", Name: " + name + ", Coordinator: " + coordinator + ")";
+    }
   
 }
