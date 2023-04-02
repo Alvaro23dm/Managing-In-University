@@ -27,8 +27,8 @@ public class UniManagTest {
         IUniversityManagement system = new UniversityManagement();
         system.addCourseToSystem(101, "Introduction to Computer Science", "Dr. Smith");
         system.addCourseToSystem(102, "Data Structures and Algorithms", "Dr. Johnson");
-        assertEquals(system.registeredCoursesList().toString(),
-        "[(Course ID: 101, Name: Introduction to Computer Science, Coordinator: Dr. Smith), (Course ID: 102, Name: Data Structures and Algorithms, Coordinator: Dr. Johnson)]",
+        assertEquals(
+        "[(Course ID: 101, Name: Introduction to Computer Science, Coordinator: Dr. Smith), (Course ID: 102, Name: Data Structures and Algorithms, Coordinator: Dr. Johnson)]", system.registeredCoursesList().toString(),
         "Implementation in adding a course to the system does not work the way it should");
         
     }
@@ -45,7 +45,7 @@ public class UniManagTest {
             system.addCourseToSystem(101, "", "Dr. Smith");
             fail("Test fail while trying to add a course to the system when the name is blank. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -61,7 +61,7 @@ public class UniManagTest {
             system.addCourseToSystem(101, "Introduction to Computer Science", "");
             fail("Test fail while trying to add a course to the system when the coordinator parameter is blank. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -78,9 +78,9 @@ public class UniManagTest {
         system.addStudentToSystem(2, "Emma Johnson", "emma.johnson@example.com");
         system.addStudentToSystem(3, "Michael Davis", "michael.davis@example.com");
         system.addStudentToSystem(4, "Samantha Martinez", "samantha.martinez@example.com");
-        assertEquals(system.registeredStudentsList().toString(),
-        "[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 2, Name: Emma Johnson, E-mail: emma.johnson@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]"
-        ,"Implementation in adding a student to the system does not work the way it should");
+        assertEquals("[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 2, Name: Emma Johnson, E-mail: emma.johnson@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]",
+        system.registeredStudentsList().toString(),
+        "Implementation in adding a student to the system does not work the way it should");
             
         
     }
@@ -98,7 +98,7 @@ public class UniManagTest {
             
             fail("Test fail while trying to add a course to the system when the name parameter is blank. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -114,7 +114,7 @@ public class UniManagTest {
             system.addStudentToSystem(1, "John Smith", "");
             fail("Test fail while trying to add a course to the system when the e-mail parameter is blank. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -130,7 +130,7 @@ public class UniManagTest {
             system.addStudentToSystem(1, "John Smith", "john.smithexample.com");
             fail("Test fail while trying to add a course to the system when the e-mail parameter doesn't contain caracter '@'. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -146,7 +146,7 @@ public class UniManagTest {
             system.addStudentToSystem(1, "John Smith", "john.smithex@ample.com.");
             fail("Test fail while trying to add a course to the system when the e-mail parameter finishes with caracter '.'. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -172,8 +172,8 @@ public class UniManagTest {
         system.enrollStudent(3, 101);
         system.enrollStudent(4, 101);
         
-        assertEquals(system.registeredStudentsList().toString(),
-        "[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 2, Name: Emma Johnson, E-mail: emma.johnson@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]"
+        assertEquals("[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 2, Name: Emma Johnson, E-mail: emma.johnson@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]"
+        ,system.registeredStudentsList().toString()
         ,"Implementation in adding a student a course does not work the way it should");
             
         
@@ -192,8 +192,9 @@ public class UniManagTest {
             system.enrollStudent(1, 101);
             fail("Test fail while trying to add a student to a course when the student isn't registered in the system. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
+        
     }
 
     /**
@@ -209,7 +210,7 @@ public class UniManagTest {
             system.enrollStudent(1, 101);
             fail("Exception did not occur. The course must be already registered in the system.");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
     
@@ -282,7 +283,7 @@ public class UniManagTest {
 
             fail("Test fail while trying to add a course to the system when the course is full. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -301,7 +302,7 @@ public class UniManagTest {
             system.enrollStudent(1, 101);
             fail("Test fail while trying to add a student to a course while the student is already in the course. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
     }
 
@@ -340,7 +341,7 @@ public class UniManagTest {
                     else error= true;
                 }   
             }
-            if(!error) assertEquals(0, 0);
+            if(!error) assertTrue(true);
             else fail("The list is not in order");
         }        
     }
@@ -368,8 +369,8 @@ public class UniManagTest {
 
         system.unenrollStudent(2, 101);
 
-        assertEquals(system.matriculatedStudentsList(101).toString()
-        ,"[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]"
+        assertEquals("[(ID: 1, Name: John Smith, E-mail: john.smith@example.com), (ID: 3, Name: Michael Davis, E-mail: michael.davis@example.com), (ID: 4, Name: Samantha Martinez, E-mail: samantha.martinez@example.com)]"
+        ,system.matriculatedStudentsList(101).toString()
         ,"Implementation in removing a student from a course does not work the way it should");
 
     }
@@ -388,7 +389,7 @@ public class UniManagTest {
             system.unenrollStudent(2, 101);
             fail("Test fail while trying to remove a student from a course when the student isn't registered in the system. This action cannot succed");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
         
     }    
@@ -407,7 +408,7 @@ public class UniManagTest {
             system.unenrollStudent(2, 101);
             fail("A student must be enroll in a course to be able to cancel enrollment");
         } catch (UnivSystemException e) {
-            assertEquals(0, 0);
+            assertTrue(true);
         }
         
     }
@@ -464,7 +465,7 @@ public class UniManagTest {
         List<IStudent> studentList = course.getStudentsList();
         course.restartCourse();
         system.enrollStudent(2, 101);
-        assertEquals(studentList.size(), 1,"After this test, the list of students cannot be empty");
+        assertEquals(1, studentList.size(), "After this test, the list of students cannot be empty");
 
     }
 
@@ -498,7 +499,7 @@ public class UniManagTest {
                     else error= true;
                 }   
             }
-            if(!error) assertEquals(0, 0);
+            if(!error) assertTrue(true);
             else fail("The list is not in order");
         }        
     }
@@ -530,7 +531,7 @@ public class UniManagTest {
                     else error= true;
                 }   
             }
-            if(!error) assertEquals(0, 0);
+            if(!error) assertTrue(true);
             else fail("The list is not in order");
         }        
     }

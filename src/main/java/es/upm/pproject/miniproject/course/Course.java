@@ -17,7 +17,7 @@ public class Course implements ICourse{
         this.code = code;
         this.coordinator = coordinator;
         this.name = name;
-        studentsList = new ArrayList<IStudent>();   
+        studentsList = new ArrayList<>();   
     }
 
     public int getCode(){
