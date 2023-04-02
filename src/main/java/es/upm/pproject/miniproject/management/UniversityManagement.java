@@ -20,8 +20,8 @@ public class UniversityManagement implements IUniversityManagement{
     private static final Logger logger = LoggerFactory.getLogger(UniversityManagement.class);
 
     public UniversityManagement(){
-        courseList = new HashMap<Integer, ICourse>();
-        studentsList = new HashMap<Integer, IStudent>();
+        courseList = new HashMap<>();
+        studentsList = new HashMap<>();
     }
 
     public void addStudentToSystem(int id, String name, String email) throws UnivSystemException{
