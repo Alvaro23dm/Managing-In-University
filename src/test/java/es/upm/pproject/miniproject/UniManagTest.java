@@ -15,7 +15,7 @@ import es.upm.pproject.miniproject.exception.UnivSystemException;
 import es.upm.pproject.miniproject.management.*;
 import es.upm.pproject.miniproject.student.*;
 
-public class UniManagTest {
+class UniManagTest {
 
     //Test part 1
     /**
